@@ -58,6 +58,8 @@ namespace Machine {
         Axes*                 _axes        = nullptr;
         Kinematics*           _kinematics  = nullptr;
         SPIBus*               _spi         = nullptr;
+        Uart*                 _uart1       = nullptr;
+        Uart*                 _uart2       = nullptr;
         I2SOBus*              _i2so        = nullptr;
         Stepping*             _stepping    = nullptr;
         CoolantControl*       _coolant     = nullptr;

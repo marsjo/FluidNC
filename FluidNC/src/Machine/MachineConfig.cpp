@@ -40,6 +40,8 @@ namespace Machine {
         handler.section("axes", _axes);
         handler.section("kinematics", _kinematics);
         handler.section("i2so", _i2so);
+        handler.section("uart1", _uart1);
+        handler.section("uart2", _uart2);
         handler.section("spi", _spi);
         handler.section("sdcard", _sdCard);
         handler.section("control", _control);
@@ -96,6 +98,9 @@ namespace Machine {
 
         // We do not auto-create an I2SO bus config node
         // Only if an i2so section is present will config->_i2so be non-null
+
+        // We do not auto-create an uart1, uart2 config node
+        // Only if an uart1 or uart2 section is present will config->uartx be non-null
 
         if (_control == nullptr) {
             _control = new Control();
@@ -243,6 +248,8 @@ namespace Machine {
     MachineConfig::~MachineConfig() {
         delete _axes;
         delete _i2so;
+        delete _uart1;
+        delete _uart2;
         delete _coolant;
         delete _probe;
         delete _sdCard;
