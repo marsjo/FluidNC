@@ -81,9 +81,9 @@ public:
 
     // Stub implementations to satisfy Stream requirements
     int  available() override { return 0; }
-    int  read() { return -1; }
-    int  peek() { return -1; }
-    void flush() {}
+    int  read() override { return -1; }
+    int  peek() override { return -1; }
+    void flush() override {}
 
     // All channels cannot be a direct command source so
     // its rx_buffer_available() method should not be called.

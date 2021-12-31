@@ -36,6 +36,8 @@ public:
     Pin _rts_pin;
     Pin _cts_pin;
 
+    bool _started = false;
+
     Uart(int uart_num = -1, bool addCR = false);
     bool   setHalfDuplex();
     bool   setPins(int tx_pin, int rx_pin, int rts_pin = -1, int cts_pin = -1);

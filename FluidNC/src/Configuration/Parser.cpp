@@ -5,6 +5,7 @@
 
 #include "ParseException.h"
 #include "../EnumItem.h"
+#include "../Machine/MachineConfig.h"
 
 #include "../Logging.h"
 
@@ -97,6 +98,20 @@ namespace Configuration {
     Pin Parser::pinValue() const {
         auto str = StringRange(token_.sValueStart_, token_.sValueEnd_);
         return Pin::create(str);
+    }
+
+    Uart* Parser::uartValue() const {
+        auto str = StringRange(token_.sValueStart_, token_.sValueEnd_);
+        if(str.str() == "uart1"){
+            return config->_uart1;
+        }
+        if(str.str() == "uart2"){
+            return config->_uart2;
+        }
+        char* message;
+        asprintf(&message, "Uart %s is not valid uart. Use either uart1 or uart2", str.str().c_str());
+        parseError(message);
+        return nullptr;
     }
 
     IPAddress Parser::ipValue() const {

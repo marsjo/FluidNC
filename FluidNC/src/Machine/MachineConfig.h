@@ -14,6 +14,7 @@
 #include "../Control.h"
 #include "../Probe.h"
 #include "../SDCard.h"
+#include "../Uart.h"
 #include "../Spindles/Spindle.h"
 #include "../Stepping.h"
 #include "../Stepper.h"

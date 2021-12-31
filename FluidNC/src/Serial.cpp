@@ -55,7 +55,7 @@
 #include <cstring>
 #include <vector>
 #include <algorithm>
-#include <freertos/task.h>  // portMUX_TYPE, TaskHandle_T
+#include <freertos/Task.h>  // portMUX_TYPE, TaskHandle_T
 
 portMUX_TYPE myMutex = portMUX_INITIALIZER_UNLOCKED;
 

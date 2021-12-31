@@ -3,6 +3,8 @@
 
 #pragma once
 
+class Uart;
+
 #include "HandlerType.h"
 #include "../Pin.h"
 #include "../EnumItem.h"
@@ -54,6 +56,8 @@ namespace Configuration {
         virtual void item(const char* name, UartData& wordLength, UartParity& parity, UartStop& stopBits) = 0;
 
         virtual void item(const char* name, Pin& value)       = 0;
+        virtual void item(const char* name, Uart*& value)      = 0;
+
         virtual void item(const char* name, IPAddress& value) = 0;
 
         virtual void item(const char* name, int& value, EnumItem* e) = 0;

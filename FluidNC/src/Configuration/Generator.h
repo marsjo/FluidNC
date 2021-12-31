@@ -49,7 +49,7 @@ namespace Configuration {
             dst_ << name << ": " << value << '\n';
         }
 
-        void item(const char* name, std::vector<speedEntry>& value) {
+        void item(const char* name, std::vector<speedEntry>& value) override {
             indent();
             dst_ << name << ": ";
             if (value.size() == 0) {
@@ -107,6 +107,13 @@ namespace Configuration {
             indent();
             dst_ << name << ": " << value << '\n';
         }
+
+        void item(const char* name, Uart*& value) override {
+            indent();
+            // TODO I need to store the uart name in the uart thing
+            dst_ << name << ": " << "uart1" << '\n';
+        }
+
         void item(const char* name, IPAddress& value) override {
             indent();
             dst_ << name << ": " << value.toString() << '\n';

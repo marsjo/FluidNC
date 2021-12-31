@@ -7,6 +7,8 @@
 #include "TrinamicBase.h"
 #include "../Pin.h"
 #include "../Uart.h"
+#include "../Machine/MachineConfig.h"
+
 
 #include <cstdint>
 
@@ -17,9 +19,7 @@ namespace MotorDrivers {
 
     class TrinamicUartDriver : public TrinamicBase {
     private:
-        static Uart* _uart;
-
-        static bool _uart_started;
+        Uart* _uart;
 
         TMC2208Stepper* tmc2208 = nullptr;
         TMC2209Stepper* tmc2209 = nullptr;
@@ -52,7 +52,7 @@ namespace MotorDrivers {
         void validate() const override { StandardStepper::validate(); }
 
         void group(Configuration::HandlerBase& handler) override {
-            handler.section("uart", _uart);
+            handler.item("uart", _uart);
             handler.item("addr", _addr);
             TrinamicBase::group(handler);
         }

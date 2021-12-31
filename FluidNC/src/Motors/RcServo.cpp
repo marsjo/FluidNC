@@ -26,7 +26,7 @@
 #include "../NutsBolts.h"
 
 #include <esp32-hal-ledc.h>  // ledcWrite
-#include <freertos/task.h>   // vTaskDelay
+#include <freertos/Task.h>   // vTaskDelay
 
 namespace MotorDrivers {
     // RcServo::RcServo(Pin pwm_pin) : Servo(), _pwm_pin(pwm_pin) {}

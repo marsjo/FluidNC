@@ -10,8 +10,8 @@
 #include "Protocol.h"              // protocol_execute_realtime
 #include "Platform.h"              // WEAK_LINK
 
-#include <freertos/task.h>
-#include <freertos/queue.h>
+#include <freertos/Task.h>
+#include <freertos/Queue.h>
 #include <atomic>  // fence
 
 xQueueHandle limit_sw_queue;  // used by limit switch debouncing

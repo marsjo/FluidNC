@@ -148,6 +148,12 @@ namespace Configuration {
             }
         }
 
+        void item(const char* name, Uart*& value) override {
+            if (_parser.is(name)) {
+                value = _parser.uartValue();
+            }
+        }
+
         void item(const char* name, IPAddress& value) override {
             if (_parser.is(name)) {
                 value = _parser.ipValue();

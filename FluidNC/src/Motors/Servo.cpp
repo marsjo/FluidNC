@@ -19,7 +19,7 @@
 #include "../Machine/MachineConfig.h"
 
 #include <atomic>
-#include <freertos/task.h>  // portTICK_PERIOD_MS, vTaskDelay
+#include <freertos/Task.h>  // portTICK_PERIOD_MS, vTaskDelay
 
 namespace MotorDrivers {
     Servo* Servo::List = NULL;

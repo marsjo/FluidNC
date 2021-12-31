@@ -15,13 +15,13 @@ namespace WebUI {
         void   end();
         int    available();
         int    availableforwrite();
-        int    peek(void);
-        int    read(void);
+        int    peek(void) override;
+        int    read(void) override;
         bool   push(const char* data);
         bool   push(char data);
-        void   flush(void);
+        void   flush(void) override;
 
-        int rx_buffer_available() { return RXBUFFERSIZE - available(); }
+        int rx_buffer_available() override { return RXBUFFERSIZE - available(); }
 
         operator bool() const;
 

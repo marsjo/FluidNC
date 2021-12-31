@@ -19,18 +19,16 @@
 
 namespace MotorDrivers {
 
-    Uart* TrinamicUartDriver::_uart = nullptr;
-
-    bool TrinamicUartDriver::_uart_started = false;
-
     /* HW Serial Constructor. */
     TrinamicUartDriver::TrinamicUartDriver(uint16_t driver_part_number, uint8_t addr) : TrinamicBase(driver_part_number), _addr(addr) {}
 
     void TrinamicUartDriver::init() {
-        if (!_uart_started) {
+        if (!_uart->_started) {
+            log_info("Start UART for RX:" << _uart->_rxd_pin << " TX:" << _uart->_txd_pin);
             _uart->begin();
             _uart->config_message("Trinamic", " Stepper ");
-            _uart_started = true;
+        }else {
+            log_info("UART for RX:" << _uart->_rxd_pin << " TX:" << _uart->_txd_pin << "already set up");
         }
         _has_errors = hw_serial_init();
 
@@ -93,7 +91,7 @@ namespace MotorDrivers {
     */
     void TrinamicUartDriver::config_message() {  //TODO: The RX/TX pin could be added to the msg.
         log_info("    Trinamic TMC" << _driver_part_number << " Step:" << _step_pin.name() << " Dir:" << _dir_pin.name()
-                                    << " Disable:" << _disable_pin.name() << " Addr:" << _addr << " R:" << _r_sense);
+                                    << " Disable:" << _disable_pin.name() << " Addr:" << _addr << " Uart: RX:" << _uart->_rxd_pin << " TX:" << _uart->_txd_pin << " R:" << _r_sense);
     }
 
     bool TrinamicUartDriver::test() {

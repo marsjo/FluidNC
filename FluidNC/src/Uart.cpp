@@ -50,7 +50,9 @@ void Uart::begin(unsigned long baudrate) {
 
 // Use the configured baud rate
 void Uart::begin() {
+    _started = true;
     begin(static_cast<unsigned long>(baud));
+
 }
 
 void Uart::begin(unsigned long baudrate, UartData dataBits, UartStop stopBits, UartParity parity) {

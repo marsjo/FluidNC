@@ -36,12 +36,13 @@ namespace Machine {
         handler.item("name", _name);
         handler.item("meta", _meta);
 
+        handler.section("uart1", _uart1);
+        handler.section("uart2", _uart2);
+
         handler.section("stepping", _stepping);
         handler.section("axes", _axes);
         handler.section("kinematics", _kinematics);
         handler.section("i2so", _i2so);
-        handler.section("uart1", _uart1);
-        handler.section("uart2", _uart2);
         handler.section("spi", _spi);
         handler.section("sdcard", _sdCard);
         handler.section("control", _control);

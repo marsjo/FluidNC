@@ -5,9 +5,7 @@
 
 #include "Configurable.h"
 #include "../System.h"
-#include "../Logging.h"
 
-#include <cstring>
 
 namespace Configuration {
     void AfterParse::enterSection(const char* name, Configurable* value) {

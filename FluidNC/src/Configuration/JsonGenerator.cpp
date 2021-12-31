@@ -110,6 +110,10 @@ namespace Configuration {
         */
     }
 
+    void JsonGenerator::item(const char* name, Uart*& value) {
+        // TODO still not sure if i want this?
+    }
+
     void JsonGenerator::item(const char* name, IPAddress& value) {
         enter(name);
         _encoder.begin_webui(_currentPath, _currentPath, "A", value.toString().c_str());

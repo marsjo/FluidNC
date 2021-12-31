@@ -206,6 +206,17 @@ namespace Configuration {
         }
     }
 
+    void RuntimeSetting::item(const char* name, Uart*& value) {
+        if (is(name)) {
+            isHandled_ = true;
+            if (newValue_ == nullptr) {
+                out_ << "$/" << setting_ << "=" << name << '\n';
+            } else {
+                out_ << "Runtime setting of Uart is not supported\n";
+            }
+        }
+    }
+
     RuntimeSetting::~RuntimeSetting() {
         std::atomic_thread_fence(std::memory_order::memory_order_seq_cst);  // Write fence for config
     }
